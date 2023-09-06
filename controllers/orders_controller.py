@@ -4,10 +4,10 @@ from models.order_list import orders
 
 tasks_blueprint = Blueprint("orders",__name__)
 
-@tasks_blueprint.route("/orders/<int:index>")
+@tasks_blueprint.route("/orders/<index>")
 def something(index):
-    order = orders[index]
-    return render_template("order.html", title = "My Astounding Pizza Place", order = order)
+    chosen_order = orders[int(index)]
+    return render_template("order.html", title = "My Astounding Pizza Place", order = chosen_order)
 
 @tasks_blueprint.route("/orders")
 def index():
